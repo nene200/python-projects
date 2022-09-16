@@ -31,8 +31,10 @@ def hangman():
         user_letter = input('Guess a letter:').upper() 
         if user_letter in alphabet - used_letters:
             used_letters.add(user_letter)
-            if user_letter in word_letters:
-                word_letters.remove(user_letter)
+
+            if user_letter.lower() in list(word_letters):
+                word_letters.remove(user_letter.lower())
+                print("guess was correct!")
 
             else:
                 lives = lives - 1 #takes away a life if wrong
